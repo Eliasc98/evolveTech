@@ -30,6 +30,85 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/logo.png')}}">
     <link rel="manifest" href="site.webmanifest">
 
+    <style>
+        /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+
+      overflow-y: auto;
+  max-height: 100vh;
+  
+  padding: 20px;
+    }
+
+    .popup-content {
+      background: linear-gradient(135deg, #2e2e5c, #1e1e2f);
+      width: 500px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      text-align: left;
+    }
+
+    .popup-content h2 {
+      text-align: center;
+      color: #ff4081;
+    }
+    
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .btn-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+
+    .btn-submit {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background-color: #ff4081;
+    }
+    </style>
+
 </head>
 
 <body id="top">
@@ -67,7 +146,7 @@
                 </ul>
             </nav> <!-- end s-header__nav-wrap -->
 
-            <a href="mailto:#0" class="btn btn--primary btn--small">
+            <a href="#" class="btn btn--primary btn--small" onclick="openPopup()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
                 Register
             </a>
@@ -119,13 +198,57 @@
         </div>
 
         <div class="s-hero__scroll">
-            <a href="#about" class="s-hero__scroll-link smoothscroll">
+            <a href="#portfolio" class="s-hero__scroll-link smoothscroll">
                 Scroll Down
             </a>
         </div>
 
     </section> <!-- end s-hero -->
 
+    <!-- registration pop up -->
+
+    <div class="popup-overlay" id="popup">
+        <div class="popup-content">
+        <button class="btn-close" onclick="closePopup()">&times;</button>
+        <h2>Register for Courses</h2>
+        <form id="registrationForm" onsubmit="processPayment(event)">
+            <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+            <label for="course">Select Course</label>
+            <select id="course" name="course" onchange="updateAmount()" required>
+                <option value="" disabled selected>Select a course</option>
+                <option value="100000">Web Development - ₦100,000</option>
+                <option value="120000">UI/UX Design - ₦120,000</option>
+                <option value="150000">Game Development - ₦150,000</option>
+                <option value="90000">Graphic Design - ₦90,000</option>
+            </select>
+            </div>
+            <div class="form-group">
+            <label for="paymentOption">Payment Option</label>
+            <select id="paymentOption" name="paymentOption" onchange="splitAmount()" required>
+                <option value="full">Full Payment</option>
+                <option value="part">Part Payment (50%)</option>
+            </select>
+            </div>
+            <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="text" id="amount" name="amount" readonly>
+            </div>
+            <button type="submit" class="btn-submit">Register & Pay</button>
+        </form>
+        </div>
+    </div>
 
     <!-- about
     ================================================== -->
@@ -268,8 +391,7 @@
             </div>
             <div class="column large-6 w-900-stack">
                 <h1 class="display-1" data-aos="fade-up">
-                    Here are some of our projects we done lately. Feel
-                    free to check them out.
+                Gain industry-relevant skills and kickstart your tech career with hands-on, expert-led courses today.
                 </h1>
             </div>
         </div> <!-- end s-portfolio__top-->
@@ -619,6 +741,63 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+    // Handle Popup
+    const popup = document.getElementById('popup');
+
+    function openPopup() {
+      popup.style.display = 'flex';
+    }
+
+    function closePopup() {
+      popup.style.display = 'none';
+    }
+
+    // Update Amount Based on Course and Payment Option
+    function updateAmount() {
+      const course = document.getElementById('course').value;
+      const paymentOption = document.getElementById('paymentOption').value;
+      const amountField = document.getElementById('amount');
+
+      if (paymentOption === 'full') {
+        amountField.value = `₦${course}`;
+      } else if (paymentOption === 'part') {
+        amountField.value = `₦${course / 2}`;
+      }
+    }
+
+    function splitAmount() {
+      updateAmount();
+    }
+
+    // Process Payment with Paystack
+    function processPayment(event) {
+      event.preventDefault();
+
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const amount = document.getElementById('amount').value.replace('₦', '') * 100;
+
+      const handler = PaystackPop.setup({
+        key: 'your-paystack-public-key', // Replace with your Paystack Public Key
+        email: email,
+        amount: amount,
+        currency: 'NGN',
+        callback: function (response) {
+          alert('Payment successful! Transaction reference: ' + response.reference);
+          // Send confirmation email and WhatsApp link
+          window.location.href = 'your-whatsapp-link'; // Replace with actual WhatsApp group link
+        },
+        onClose: function () {
+          alert('Transaction was not completed.');
+        },
+      });
+      handler.openIframe();
+    }
+  </script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
 
 </body>
 
