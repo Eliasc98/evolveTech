@@ -15,19 +15,19 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('css/vendor.css')}}">
 
     <!-- script
     ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script defer src="js/fontawesome/all.min.js"></script>
+    <script src="{{asset('js/modernizr.js')}}"></script>
+    <script defer src="{{asset('js/fontawesome/all.min.js')}}"></script>
 
     <!-- favicons
     ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('images/logo.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/logo.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/logo.png')}}">
     <link rel="manifest" href="site.webmanifest">
 
 </head>
@@ -51,7 +51,7 @@
     <header class="s-header">
 
         <div class="s-header__logo">
-            <a href="index.html">
+            <a href="/">
                 <img src="logo.png" alt="Homepage">
             </a>
         </div>
@@ -280,8 +280,8 @@
                 <div class="folio-item">
                     <div class="folio-item__thumb">
                         <a class="folio-item__thumb-link" href="images/1.png" title="The Red Wheel" data-size="1050x700">
-                            <img src="images/1.png" 
-                                 srcset="images/1.png 1x, images/1.png@2x.jpg 2x" alt="">
+                            <img src="{{asset('images/1.png')}}" 
+                                 srcset="images/1.png 1x, images/1.png@2x.jpg 2x" alt="evolve_tech_images">
                         </a>
                     </div>
                     <div class="folio-item__info">
@@ -298,7 +298,7 @@
                 <div class="folio-item">
                     <div class="folio-item__thumb">
                         <a class="folio-item__thumb-link" href="images/2.png" title="Music Life" data-size="1050x700">
-                            <img src="images/2.png" 
+                            <img src="{{asset('images/2.png')}}" 
                                  srcset="images/2.png 1x, images/2.png@2x.jpg 2x" alt="">
                         </a>
                     </div>
@@ -316,7 +316,7 @@
                 <div class="folio-item">
                     <div class="folio-item__thumb">
                         <a class="folio-item__thumb-link" href="images/3.png" Title="OI Logo" data-size="1050x700">
-                            <img src="images/3.png" 
+                            <img src="{{asset('images/3.png')}}" 
                                  srcset="images/3.png 1x, images/3.png@2x.jpg 2x" alt="">
                         </a>
                     </div>
@@ -335,7 +335,7 @@
                 <div class="folio-item">
                     <div class="folio-item__thumb">
                         <a class="folio-item__thumb-link" href="images/4.png" title="Corrugated Sheets" data-size="1050x700">
-                            <img src="images/4.png" 
+                            <img src="{{asset('images/4.png')}}" 
                                  srcset="images/4.png 1x, images/4.png@2x.jpg 2x" alt="">
                         </a>
                     </div>
@@ -353,7 +353,7 @@
                 <div class="folio-item">
                     <div class="folio-item__thumb">
                         <a class="folio-item__thumb-link" href="images/5.png" title="Sand Dunes" data-size="1050x700">
-                            <img src="images/5.png" 
+                            <img src="{{asset('images/5.png')}}" 
                                  srcset="images/5.png 1x, images/5.png@2x.jpg 2x" alt="">
                         </a>
                     </div>
@@ -373,7 +373,7 @@
                 <div class="folio-item">
                     <div class="folio-item__thumb">
                         <a class="folio-item__thumb-link" href="images/6.png" title="The Lamp" data-size="1050x700">
-                            <img src="images/6.png" 
+                            <img src="{{asset('images/6.png')}}" 
                                  srcset="images/6.png 1x, images/6.png@2x.jpg 2x" alt="">
                         </a>
                     </div>
@@ -537,9 +537,7 @@
                         <h4 class="h6">Where to Find Us</h4>
         
                         <p>
-                        1600 Amphitheatre Parkway <br>
-                        Mountain View, California <br>
-                        94043  US <br>
+                        18, Joel Ogunnaike, GRA Ikeja Lagos State.<br>
                         <a href="tel:9138950629">+234 913 895 0629</a>
                         </p>
                     </div>
