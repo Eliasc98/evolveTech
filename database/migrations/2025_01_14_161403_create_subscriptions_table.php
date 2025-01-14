@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->constrained();
+            $table->string('email');
+            $table->string('course');
+            $table->string('amount')->nullable();
+            $table->string('ref');
+            $table->string('confirmation')->default('not_confirmed');
             $table->timestamps();
         });
     }
