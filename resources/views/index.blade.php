@@ -52,7 +52,7 @@
 
         <div class="s-header__logo">
             <a href="/">
-                <img src="logo.png" alt="Homepage">
+                <img src="{{asset('images/logo.png')}}" alt="Homepage">
             </a>
         </div>
 
@@ -306,7 +306,7 @@
                         <div class="folio-item__cat">Game Development</div>
                         <h4 class="folio-item__title">Unity Engine, C#</h4>
                     </div>
-                    <a href="https://www.behance.net/" title="Project Link" class="folio-item__project-link">Project Link</a>
+                    <a href="https://www.behance.net/" title="Project Link" class="folio-item__project-link">Register</a>
                     <div class="folio-item__caption">
                         <p>Embark on an exciting 12-week journey into game development! Master the Unity Engine, C#, and .NET Framework to create immersive games from scratch.</p>
                     </div>
