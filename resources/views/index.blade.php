@@ -57,6 +57,7 @@
       border-radius: 8px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
       text-align: left;
+      margin-top: 200px;
     }
 
     .popup-content h2 {
@@ -211,6 +212,7 @@
         <div class="popup-content">
         <button class="btn-close" onclick="closePopup()">&times;</button>
         <h2>Register for Courses</h2>
+
         <form id="registrationForm" onsubmit="processPayment(event)">
             <div class="form-group">
             <label for="fullName">Full Name</label>
