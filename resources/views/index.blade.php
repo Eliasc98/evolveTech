@@ -12,14 +12,9 @@
     <!-- mobile specific metas
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('css/vendor.css')}}">
 
-    <!-- script
-    ================================================== -->
     <script src="{{asset('js/modernizr.js')}}"></script>
     <script defer src="{{asset('js/fontawesome/all.min.js')}}"></script>
 
@@ -31,7 +26,7 @@
     <link rel="manifest" href="site.webmanifest">
 
     <style>
-        /* Popup Styles */
+    
     .popup-overlay {
       position: fixed;
       top: 0;
