@@ -77,7 +77,7 @@
                     <li><a href="index.html#services" title="Services">Services</a></li>
                     <li><a href="index.html#portfolio" title="Works">Works</a></li>
                 </ul>
-            </nav> <!-- end s-header__nav-wrap -->
+            </nav>
 
             <a href="mailto:#0" class="btn btn--primary btn--small">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
@@ -88,8 +88,7 @@
 
         <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
 
-    </header> <!-- end s-header -->
-
+    </header> 
 
     <!-- hero
     ================================================== -->
@@ -137,11 +136,8 @@
             </a>
         </div>
 
-    </section> <!-- end s-hero -->
+    </section>
 
-
-    <!-- s-styles
-    ================================================== -->
     <section id="styles" class="s-styles">
 
         <div class="row">
